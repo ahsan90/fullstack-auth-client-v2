@@ -20,9 +20,9 @@ export default function AboutPage() {
         <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
         <ul className="list-disc list-inside text-gray-700 leading-relaxed">
           <li className="mb-2">
-            <strong>Email & Password Authentication:</strong> Secure login (JWT with Cookie based session management) using
-            email and password, with encryption and hashing mechanisms to
-            protect sensitive data.
+            <strong>Email & Password Authentication:</strong> Secure login (JWT
+            with Cookie based session management) using email and password, with
+            encryption and hashing mechanisms to protect sensitive data.
           </li>
           <li className="mb-2">
             <strong>Refresh Token Mechanism:</strong> Access tokens are
@@ -51,9 +51,9 @@ export default function AboutPage() {
         <h2 className="text-2xl font-semibold mb-4">Technologies Used</h2>
         <ul className="list-disc list-inside text-gray-700 leading-relaxed">
           <li className="mb-2">
-            <strong>Express.js (TypeScript):</strong> Our backend is powered by Express.js,
-            providing a lightweight yet powerful framework for handling API
-            requests, middleware, and routing.
+            <strong>Express.js (TypeScript):</strong> Our backend is powered by
+            Express.js, providing a lightweight yet powerful framework for
+            handling API requests, middleware, and routing.
           </li>
           <li className="mb-2">
             <strong>Passport.js:</strong> We use Passport.js for authentication
@@ -77,14 +77,15 @@ export default function AboutPage() {
           </li>
           <li className="mb-2">
             <strong>NextAuth.js v5:</strong> Authentication is handled using
-            NextAuth.js Version 5, providing secure user sessions, token management,
-            and flexible authentication strategies.
+            NextAuth.js Version 5, providing secure user sessions, token
+            management, and flexible authentication strategies.
           </li>
         </ul>
       </section>
       <footer className="bg-gray-900 text-white py-4 text-center">
         <p>
-          &copy; {new Date().getFullYear()} Codehouse Lab. All rights reserved.
+          &quot;copy; {new Date().getFullYear()} Codehouse Lab. All rights
+          reserved.
         </p>
       </footer>
     </div>

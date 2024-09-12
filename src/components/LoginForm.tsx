@@ -123,7 +123,7 @@ export default function LoginForm() {
             href="/register"
             className="text-indigo-500 hover:text-indigo-700 transition-colors duration-200 hover:underline"
           >
-            Don't have an account?
+            Don&apos;t have an account?
           </Link>
         </p>
       </div>

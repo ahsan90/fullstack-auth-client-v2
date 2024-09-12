@@ -37,7 +37,7 @@ export default function UserRole({
         User Role{" "}
         {currentUser?.id === userId && role && (
           <span className="text-gray-500 text-xs">
-            (You can't change your own role)
+            (You can&quot;t change your own role)
           </span>
         )}
       </label>
