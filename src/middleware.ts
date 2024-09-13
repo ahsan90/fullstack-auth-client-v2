@@ -29,7 +29,7 @@ export async function middleware(req: NextRequest) {
     isAdminUser &&
     !isNormalUser
   ) {
-    return NextResponse.redirect(new URL("/admin/profile", req.url));
+    return NextResponse.redirect(new URL("/admin/users", req.url));
   }
   if (
     isAuthRoutes &&

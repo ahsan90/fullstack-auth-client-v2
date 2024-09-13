@@ -91,7 +91,7 @@ export const loggedInRedirectPath = async () => {
     const session = await auth();
     revalidatePath("/", "layout");
     if (session?.accessToken && session?.user?.role === "ADMIN") {
-      return { success: true, path: "/admin/profile" };
+      return { success: true, path: "/admin/users" };
     } else if (session?.accessToken && session?.user?.role === "USER") {
       return { success: true, path: "/dashboard/profile" };
     }
