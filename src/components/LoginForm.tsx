@@ -103,7 +103,7 @@ export default function LoginForm() {
         <button
           type="submit"
           disabled={isPending}
-          className="flex items-center justify-center w-full bg-indigo-600 text-white py-2 px-4 rounded-md shadow hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors duration-200"
+          className="flex items-center justify-center w-full bg-indigo-600 text-white py-2 px-4 rounded-md shadow hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors duration-200 disabled:bg-indigo-300 disabled:text-gray-500 disabled:cursor-not-allowed"
         >
           {isPending ? (
             <svg
