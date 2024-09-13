@@ -49,7 +49,7 @@ export const updateUserSchema = z
     name: z.string().min(2, { message: "Name is required" }),
     email: z.string().email({ message: "Invalid email address" }),
     role: z.enum(["ADMIN", "USER"]),
-    isPasswordChanged: z.boolean(),
+    isPasswordChanged: z.boolean().optional(),
     currentPassword: z.string().optional(), // Make currentPassword optional
     newPassword: z.string().optional(), // Make newPassword optional
     confirmPassword: z.string().optional(), // Make confirmPassword optional
@@ -97,7 +97,7 @@ export const updateUserSchema = z
 export const updateLoggedInUserSchema = z.object({
   name: z.string().min(2, { message: "Name is required" }),
   email: z.string().email({ message: "Invalid email address" }),
-  isPasswordChangeRequested: z.boolean(),
+  isPasswordChangeRequested: z.boolean().optional(),
   currentPassword: z.string().optional(),
   newPassword: z.string().optional(),
   confirmPassword: z.string().optional(),
