@@ -7,7 +7,6 @@ function LogoutButton() {
   //const router = useRouter();
   const handleLogout = async () => {
     // Handle logout logic
-    console.log("Logout button clicked");
     await logout();
     //try {
     ///const res = await logout();
