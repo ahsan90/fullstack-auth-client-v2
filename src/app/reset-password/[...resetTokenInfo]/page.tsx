@@ -5,9 +5,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import { isTokenExpired } from "@/_utils/isTokenExpired";
+import { isTokenExpired } from "@/utils/isTokenExpired";
 import { useParams } from "next/navigation";
-import { passwordResetSchema } from "@/_lib/validateSchemas";
+import { passwordResetSchema } from "@/lib/validateSchemas";
 import * as z from "zod";
 import { FormError } from "@/components/form-error";
 import { resetPassword, varifyResetToken } from "@/actions/authActions";
@@ -41,7 +41,7 @@ function ResetPasswordPage() {
     };
     Promise.all([isValid()]);
   }, []);
-  
+
   const onSubmit = async (data: PasswordResetData) => {
     setServerError(null);
     startTransition(async () => {
@@ -62,18 +62,16 @@ function ResetPasswordPage() {
 
   console.log("isValidResetToken: ", isValidResetToken);
 
-  if(isValidResetToken === undefined) {
-    return (
-      <></>
-    );
+  if (isValidResetToken === undefined) {
+    return <></>;
   }
 
   if (!isValidResetToken) {
     return (
       <div className="flex justify-center text-2xl text-center font-bold">
         <p className="text-red-600 mt-32">
-          The reset link is expired or invalid! Please try again by sending a new password
-          reset request.
+          The reset link is expired or invalid! Please try again by sending a
+          new password reset request.
         </p>
       </div>
     );

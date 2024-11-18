@@ -1,10 +1,6 @@
-import formatDate from "@/_utils/getFormatedDate";
+import formatDate from "@/utils/getFormatedDate";
 
-const UserDetail = ({
-  user,
-}: {
-  user: any;
-}) => {
+const UserDetail = ({ user }: { user: any }) => {
   return (
     <div className="inset-0 flex items-center justify-center">
       <div className="p-6 rounded-lg max-w-md w-full">

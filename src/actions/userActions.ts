@@ -3,9 +3,9 @@
 import {
   registerUserSchema,
   updateLoggedInUserSchema,
-} from "@/_lib/validateSchemas";
+} from "@/lib/validateSchemas";
 import * as z from "zod";
-import baseAPI_URL from "@/_utils/baseAPI_URL";
+import baseAPI_URL from "@/utils/baseAPI_URL";
 import { auth, signOut } from "@/auth";
 import { revalidatePath } from "next/cache";
 import { AuthError } from "next-auth";
@@ -57,11 +57,11 @@ export const updateUser = async (
     const updatePayload = !validatedFields.data.isPasswordChangeRequested
       ? { name: validatedFields.data.name, email: validatedFields.data.email }
       : {
-          name: validatedFields.data.name,
-          email: validatedFields.data.email,
-          currentPassword: validatedFields.data.currentPassword,
-          newPassword: validatedFields.data.newPassword,
-        };
+        name: validatedFields.data.name,
+        email: validatedFields.data.email,
+        currentPassword: validatedFields.data.currentPassword,
+        newPassword: validatedFields.data.newPassword,
+      };
     //console.log("updatePayload: ", updatePayload);
     const session = await auth();
     const response = await fetch(`${baseAPI_URL}/users/update`, {
@@ -91,29 +91,6 @@ export const updateUser = async (
   }
 };
 
-export const loggedInUser = async () => {
-  try {
-    const session = await auth();
-    const response = await fetch(`${baseAPI_URL}/users/me`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Cookie: `accessToken=${session?.accessToken}; refreshToken=${session?.refreshToken}`,
-      },
-    });
-    if (!response.ok) {
-      const { message } = await response.json();
-      throw new Error(message);
-    }
-    return { success: true, user: await response.json() };
-  } catch (err: any) {
-    if (err instanceof Error) {
-      return { success: false, error: err.message };
-    }
-    return { success: false, error: "An unexpected error occurred" };
-  }
-};
-
 export const deleteUser = async () => {
   try {
     const session = await auth();
@@ -139,5 +116,5 @@ export const deleteUser = async () => {
     }
     throw err;
     //return { success: false, error: "An unexpected error occurred" };
-  } 
+  }
 }

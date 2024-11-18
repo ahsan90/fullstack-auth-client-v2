@@ -1,7 +1,7 @@
 import React, { useTransition, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FormError } from "./form-error";
-import { requestPasswordSchema } from "@/_lib/validateSchemas";
+import { requestPasswordSchema } from "@/lib/validateSchemas";
 import { z } from "zod";
 import { toast } from "react-toastify";
 import { sendPassResetLink } from "@/actions/authActions";

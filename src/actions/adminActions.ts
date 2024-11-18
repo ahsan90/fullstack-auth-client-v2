@@ -1,8 +1,8 @@
 "use server";
-import { addUserSchema, updateUserSchema } from "@/_lib/validateSchemas";
+import { addUserSchema, updateUserSchema } from "@/lib/validateSchemas";
 import { auth, signOut } from "@/auth";
 import * as z from "zod";
-import baseAPI_URL from "@/_utils/baseAPI_URL";
+import baseAPI_URL from "@/utils/baseAPI_URL";
 import { revalidatePath } from "next/cache";
 
 export const addUser = async (data: z.infer<typeof addUserSchema>) => {
@@ -106,51 +106,3 @@ export const deleteUser = async (id: string) => {
   }
 };
 
-export const getAllUsers = async () => {
-  try {
-    const session = await auth();
-    if (session?.user?.role !== "ADMIN") {
-      return { success: false, error: "Not authorized" };
-    }
-    const response = await fetch(`${baseAPI_URL}/admin/users`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Cookie: `accessToken=${session?.accessToken}; refreshToken=${session?.refreshToken}`,
-      },
-    });
-    if (!response.ok) {
-      const { message } = await response.json();
-      throw new Error(message);
-    }
-    return { success: true, users: await response.json() };
-  } catch (err: any) {
-    if (err instanceof Error) {
-      return { success: false, error: err.message };
-    }
-    return { success: false, error: "An unexpected error occurred" };
-  }
-};
-
-export const getUserRoles = async () => {
-  try {
-    const session = await auth();
-    const response = await fetch(`${baseAPI_URL}/admin/roles`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Cookie: `accessToken=${session?.accessToken}; refreshToken=${session?.refreshToken}`,
-      },
-    });
-    if (!response.ok) {
-      const { message } = await response.json();
-      throw new Error(message);
-    }
-    return { success: true, roles: await response.json() };
-  } catch (err: any) {
-    if (err instanceof Error) {
-      return { success: false, error: err.message };
-    }
-    return { success: false, error: "An unexpected error occurred" };
-  }
-};

@@ -3,7 +3,7 @@
 import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { loginSchema } from "@/_lib/validateSchemas";
+import { loginSchema } from "@/lib/validateSchemas";
 import { loggedInRedirectPath, login } from "@/actions/authActions";
 import { FormError } from "@/components/form-error";
 import { z } from "zod";

@@ -1,8 +1,8 @@
 import type { NextAuthConfig } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import baseAPI_URL from "@/_utils/baseAPI_URL";
-import extractTokens from "@/_utils/extractTokens";
-import { isTokenExpired } from "@/_utils/isTokenExpired";
+import baseAPI_URL from "@/utils/baseAPI_URL";
+import extractTokens from "@/utils/extractTokens";
+import { isTokenExpired } from "@/utils/isTokenExpired";
 import { JWT } from "next-auth/jwt";
 
 

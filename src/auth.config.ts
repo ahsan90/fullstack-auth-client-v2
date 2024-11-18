@@ -1,7 +1,7 @@
 import type { NextAuthConfig } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import baseAPI_URL from "@/_utils/baseAPI_URL";
-import extractTokens from "@/_utils/extractTokens";
+import baseAPI_URL from "@/utils/baseAPI_URL";
+import extractTokens from "@/utils/extractTokens";
 
 export default {
   providers: [

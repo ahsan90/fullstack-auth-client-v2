@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { updateLoggedInUserSchema } from "@/_lib/validateSchemas";
+import { updateLoggedInUserSchema } from "@/lib/validateSchemas";
 import { FormError } from "@/components/form-error";
 
 type UpdateFormData = z.infer<typeof updateLoggedInUserSchema>;

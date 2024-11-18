@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { getUserRoles } from "@/actions/adminActions";
 import { getSession } from "next-auth/react";
+import baseAPI_URL from "@/utils/baseAPI_URL";
+import { toast } from "react-toastify";
 
 export default function UserRole({
   register,
@@ -14,22 +15,30 @@ export default function UserRole({
   useEffect(() => {
     const session = async () => {
       const session = await getSession();
-      //console.log(session?.user!);
-      setCurrentUser(session?.user!);
-      //console.log("session: ", session?.user!);
+      setCurrentUser(session!.user!);
       if (session?.user?.role === "ADMIN" && userId !== session?.user?.id) {
-        const res = await getUserRoles();
-        if (res.success) {
-          //console.log(res.roles);
-          setRoles(res.roles || {});
-        }
-        if (!res.success) {
-          console.log(res.error);
+        try {
+          const res = await fetch(`/api/admin/roles`, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+          if (!res.ok) {
+            const { message } = await res.json();
+            throw new Error(message);
+          }
+          const roles = await res.json();
+          //console.log("roles: ", roles);
+          setRoles(roles || {});
+        } catch ( error : any ) {
+          toast.error(error.message);
         }
       }
     };
     session();
   }, []);
+
   if (currentUser?.role !== "ADMIN") return null;
   return (
     <div className="mb-4">

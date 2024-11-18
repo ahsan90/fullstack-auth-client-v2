@@ -1,4 +1,4 @@
-import { getAllUsers } from '@/actions/adminActions';
+import { getAllUsers } from '@/queries/getAllusers';
 import UserViewButton from './UserViewButton';
 import UpdateUserButton from './UpdateUserButton';
 import AddUserButton from './AddUserButton';

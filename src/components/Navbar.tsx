@@ -1,11 +1,11 @@
 //"use client";
 import Link from "next/link";
 import { auth } from "@/auth";
-import LogoutButton from "@/components/buttons/LogoutButton";
-import DropdownButton from "./buttons/DropdownToggle";
+//import LogoutButton from "@/components/buttons/LogoutButton";
+import DropdownElement from "./buttons/DropdownToggle";
 //import { useEffect, useState } from "react";
 
-export const dynamic = "force-dynamic";
+//export const dynamic = "force-dynamic";
 
 export default async function Navbar() {
   //const [session, setSession] = useState(null);
@@ -31,7 +31,7 @@ export default async function Navbar() {
 
           {session ? (
             <>
-              <DropdownButton session={session} />
+              <DropdownElement session={session} />
             </>
           ) : (
             <>

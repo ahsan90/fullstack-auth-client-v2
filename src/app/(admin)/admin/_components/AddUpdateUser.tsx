@@ -2,7 +2,7 @@
 import React, { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { addUserSchema, updateUserSchema } from "@/_lib/validateSchemas";
+import { addUserSchema, updateUserSchema } from "@/lib/validateSchemas";
 import { addUser, updateUser } from "@/actions/adminActions";
 import { toast } from "react-toastify";
 import { FormError } from "@/components/form-error";
@@ -21,7 +21,13 @@ type UserProps = {
   role: string;
 };
 
-export default function AddUpdateUser({user, onClose}: {user?: UserProps | null, onClose: () => void}) {
+export default function AddUpdateUser({
+  user,
+  onClose,
+}: {
+  user?: UserProps | null;
+  onClose: () => void;
+}) {
   const [isPending, startTransition] = useTransition();
   const [serverError, setServerError] = useState<string | null>(null);
   // const dataForm = data ? UpdateFormData : AddFormData;
@@ -30,17 +36,21 @@ export default function AddUpdateUser({user, onClose}: {user?: UserProps | null,
   const {
     register,
     handleSubmit,
-    formState: { errors},
-    clearErrors
+    formState: { errors },
+    clearErrors,
   } = useForm<typeof isUdpate extends true ? UpdateFormData : AddFormData>({
     resolver: zodResolver(schema),
   });
 
-  const onSubmit = async (data: typeof isUdpate extends true ? UpdateFormData : AddFormData) => {
+  const onSubmit = async (
+    data: typeof isUdpate extends true ? UpdateFormData : AddFormData
+  ) => {
     setServerError(null);
-    console.log(data);
+    //console.log(data);
     startTransition(async () => {
-      const response = (await (isUdpate ? updateUser(user.id, data) : addUser(data))) as any;
+      const response = (await (isUdpate
+        ? updateUser(user.id, data)
+        : addUser(data))) as any;
       if (!response.success) {
         toast.error(response.error);
         setServerError(response.error);
@@ -103,7 +113,7 @@ export default function AddUpdateUser({user, onClose}: {user?: UserProps | null,
           errors={errors}
           isPending={isPending}
           role={user?.role}
-          userId = {user?.id}
+          userId={user?.id}
         />
         <UserCredentialsInput
           register={register}

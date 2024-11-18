@@ -3,9 +3,9 @@ import {
   loginSchema,
   passwordResetSchema,
   requestPasswordSchema,
-} from "@/_lib/validateSchemas";
-import { isTokenExpired } from "@/_utils/isTokenExpired";
-import baseAPI_URL from "@/_utils/baseAPI_URL";
+} from "@/lib/validateSchemas";
+import { isTokenExpired } from "@/utils/isTokenExpired";
+import baseAPI_URL from "@/utils/baseAPI_URL";
 import { auth, signIn, signOut } from "@/auth";
 import { AuthError } from "next-auth";
 import * as z from "zod";

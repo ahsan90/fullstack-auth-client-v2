@@ -1,9 +1,9 @@
 import NextAuth from "next-auth";
 import authConfig from "@/auth.config";
 import { JWT } from "next-auth/jwt";
-import baseAPI_URL from "./_utils/baseAPI_URL";
-import extractTokens from "./_utils/extractTokens";
-import { isTokenExpired } from "./_utils/isTokenExpired";
+import baseAPI_URL from "./utils/baseAPI_URL";
+import extractTokens from "./utils/extractTokens";
+import { isTokenExpired } from "./utils/isTokenExpired";
 
 const refreshAccessToken = async (token: any): Promise<JWT> => {
   //console.log('token to refresh: ', token);

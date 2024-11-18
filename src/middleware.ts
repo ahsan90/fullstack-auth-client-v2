@@ -1,5 +1,5 @@
 import authconfig from "@/auth.config";
-import * as route from "@/_lib/route";
+import * as route from "@/lib/route";
 import NextAuth from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "./auth";

@@ -1,5 +1,5 @@
-import { loggedInUser } from "@/actions/userActions";
-import formatDate from "@/_utils/getFormatedDate";
+import { loggedInUser } from "@/queries/getLoggedInUser";
+import formatDate from "@/utils/getFormatedDate";
 import ProfileSettings from "@/app/(user)/dashboard/_components/UserSettings";
 
 export default async function UserProfile() {

@@ -6,7 +6,7 @@ import { registerUser } from "@/actions/userActions";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { z } from "zod";
-import { registerUserSchema } from "@/_lib/validateSchemas";
+import { registerUserSchema } from "@/lib/validateSchemas";
 import { FormError } from "@/components/form-error";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
